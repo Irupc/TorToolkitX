@@ -19,6 +19,6 @@ async def get_thumbnail(file_path, user_id=None):
     if user_id is not None:
         pass  # todo code for custom thumbnails here mostly will be with db
     else:
-        path = "irupc.jpeg"
+        path = "https://raw.githubusercontent.com/Irupc/TorToolkitX/5ec60f2cfa58b21a7d53c88d631c640d28679f1d/irupc.jpeg"
         path = await vids_helpers.resize_img(path, 320)
         return path
