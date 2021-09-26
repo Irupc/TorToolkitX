@@ -320,7 +320,7 @@ async def check_link(msg, rclone=False, is_zip=False, extract=False, prev_msg=No
             path = None
             re_name = None
 
-            if "irupc.net/p/bot.html" in url:
+            if "irupc.net" in url:
                 tg_file_id = url.split("?")[1]
                 url = "https://link.irupc.xyz/" + tg_file_id
 
