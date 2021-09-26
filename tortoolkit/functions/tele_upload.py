@@ -337,7 +337,7 @@ async def upload_a_file(
         if dis_thumb is False or dis_thumb is None:
             thumb_path = user_db.get_thumbnail(user_msg.sender_id)
             if not thumb_path:
-                thumb_path = "irupc.jpg"
+                thumb_path = "irupc.jpeg"
 
     try:
         if get_val("FAST_UPLOAD"):
@@ -369,9 +369,10 @@ async def upload_a_file(
                     if thumb_path is not None:
                         thumb = thumb_path
                     else:
-                        thumb = "irupc.jpg"
+                        thumb = "irupc.jpeg"
                 except:
-                    thumb = None
+                    #IRUPC EDITS
+                    thumb = "irupc.jpeg"
                     torlog.exception("Error in thumb")
                 try:
                     attrs, _ = get_attributes(opath, supports_streaming=True)
@@ -424,7 +425,7 @@ async def upload_a_file(
                 if thumb_path is not None:
                     thumb_ap = thumb_path
                 else:
-                    thumb_ap = "irupc.jpg"
+                    thumb_ap = "irupc.jpeg"
                 if force_docs:
                     attrs, _ = get_attributes(opath, force_document=True)
                     out_msg = await msg.client.send_file(
