@@ -25,16 +25,16 @@ except:
         EDIT_SLEEP_SECS = 10
 
         # Telegram Upload Limit (in bytes)
-        TG_UP_LIMIT = 1700000000
+        TG_UP_LIMIT = 2147483648
 
         # Should force evething uploaded into Document
         FORCE_DOCUMENTS = False
 
         # Chracter to use as a completed progress
-        COMPLETED_STR = "▰"
+        COMPLETED_STR = "█"
 
         # Chracter to use as a incomplete progress
-        REMAINING_STR = "▱"
+        REMAINING_STR = "░"
 
         # DB URI for access
         DATABASE_URL = (
@@ -45,10 +45,10 @@ except:
         # DATABASE_URL = "dbname=tortk user=postgres password=your-pass host=db port=5432"
 
         # MEGA CONFIG
-        MEGA_ENABLE = False
-        MEGA_API = ""
-        MEGA_UNAME = None
-        MEGA_PASS = None
+        MEGA_ENABLE = True
+        MEGA_API = "9wtHRKgT"
+        MEGA_UNAME = "irupcoffical@gmail.com"
+        MEGA_PASS = "Iru@20050112"
 
         # The base direcory to which the files will be upload if using RCLONE
         RCLONE_BASE_DIR = "/"
