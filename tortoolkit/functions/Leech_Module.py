@@ -336,7 +336,7 @@ async def check_link(msg, rclone=False, is_zip=False, extract=False, prev_msg=No
                     torlog.info("The iruPC Downloading:\n{}".format(url))
                 else:
                     torlog.info("The aria2 Downloading:\n{}".format(url))
-                    
+
                 await aio.sleep(1)
 
                 url = await generate_directs(url)
