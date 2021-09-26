@@ -371,7 +371,7 @@ async def upload_a_file(
                     else:
                         thumb = "irupc.jpeg"
                 except:
-                    #IRUPC EDITS
+                    # IRUPC EDITS
                     thumb = "irupc.jpeg"
                     torlog.exception("Error in thumb")
                 try:
