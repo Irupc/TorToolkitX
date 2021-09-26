@@ -320,10 +320,6 @@ async def check_link(msg, rclone=False, is_zip=False, extract=False, prev_msg=No
             path = None
             re_name = None
 
-            if "irupc.net" in url:
-                tg_file_id = url.split("?")[1]
-                url = "https://link.irupc.xyz/" + tg_file_id
-
             if "mega.nz" in url:
                 torlog.info("Megadl Downloading:\n{}".format(url))
                 dl_task = await megadl(url, rmsg, omess)
@@ -334,7 +330,13 @@ async def check_link(msg, rclone=False, is_zip=False, extract=False, prev_msg=No
                 else:
                     stat = True
             else:
-                torlog.info("The aria2 Downloading:\n{}".format(url))
+                if "irupc.net" in url:
+                    tg_file_id = url.split("?")[1]
+                    url = "https://link.irupc.xyz/" + tg_file_id
+                    torlog.info("The iruPC Downloading:\n{}".format(url))
+                else:
+                    torlog.info("The aria2 Downloading:\n{}".format(url))
+                    
                 await aio.sleep(1)
 
                 url = await generate_directs(url)
