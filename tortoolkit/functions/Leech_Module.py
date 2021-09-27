@@ -333,8 +333,10 @@ async def check_link(msg, rclone=False, is_zip=False, extract=False, prev_msg=No
                 if "irupc.net" in url:
                     tg_file_id = url.split("?")[1]
                     url = "https://link.irupc.xyz/" + tg_file_id
+                    download_link_iru = url
                     torlog.info("The iruPC Downloading:\n{}".format(url))
                 else:
+                    download_link_iru = msg.raw_text
                     torlog.info("The aria2 Downloading:\n{}".format(url))
 
                 await aio.sleep(1)
@@ -367,7 +369,7 @@ async def check_link(msg, rclone=False, is_zip=False, extract=False, prev_msg=No
 
                 if url is None:
                     stat, dl_task = await ariatools.aria_dl(
-                        msg.raw_text, "", rmsg, omess
+                        download_link_iru, "", rmsg, omess
                     )
                 else:
                     stat, dl_task = await ariatools.aria_dl(url, "", rmsg, omess)
