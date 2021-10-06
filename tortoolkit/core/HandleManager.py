@@ -252,14 +252,14 @@ def add_handlers(bot: TelegramClient):
 
 async def handle_leech_command(e):
     if not e.is_reply:
-        await e.reply("Reply to a link or magnet")
+        await e.reply("Reply to a link or magnet\n\n😊ඔය Command එක ඔයාට Leech කරන්න ඕනි Download Link එකට, Magent එකට හෝ Torrent File එකට Reply එකක් විදිහට දාන්න")
     else:
         rclone = False
         tsp = time.time()
-        buts = [[KeyboardButtonCallback("To Telegram", data=f"leechselect tg {tsp}")]]
+        buts = [[KeyboardButtonCallback("📡 To Telegram 📡", data=f"leechselect tg {tsp}")]]
         if await get_config() is not None:
             buts.append(
-                [KeyboardButtonCallback("To Drive", data=f"leechselect drive {tsp}")]
+                [KeyboardButtonCallback("☁️ To Drive ☁️", data=f"leechselect drive {tsp}")]
             )
         # tsp is used to split the callbacks so that each download has its own callback
         # cuz at any time there are 10-20 callbacks linked for leeching XD
@@ -267,20 +267,20 @@ async def handle_leech_command(e):
         buts.append(
             [
                 KeyboardButtonCallback(
-                    "Upload in a ZIP.[Toggle]", data=f"leechzip toggle {tsp}"
+                    "Upload as ZIP File.[Toggle]", data=f"leechzip toggle {tsp}"
                 )
             ]
         )
         buts.append(
             [
                 KeyboardButtonCallback(
-                    "Extract from Archive.[Toggle]", data=f"leechzipex toggleex {tsp}"
+                    "Extract Files from Zip File.", data=f"leechzipex toggleex {tsp}"
                 )
             ]
         )
 
         conf_mes = await e.reply(
-            f"First click if you want to zip the contents or extract as an archive (only one will work at a time) then...\n\n<b>Choose where to upload your files:-</b>\nThe files will be uploaded to default destination: <b>{get_val('DEFAULT_TIMEOUT')}</b> after 60 sec of no action by user.</u>\n\n<b>Supported archives to extract:</b>\nzip, 7z, tar, gzip2, iso, wim, rar, tar.gz, tar.bz2",
+            f"<a href='https://t.me/mirrorlk/7270'><b>Click Here to View this Msg in English</b></a>\n\nමුලින්ම ඔයාගෙ Content එක Zip File එකක් නම් පහල තියන <b>Extract Files from Zip File</b> Button එක Click කරල ඉන්න...\n\nඊට පස්සෙ ඔයාගෙ Content එක Upload කරන්න ඕනි Telegram වලටද නැත්තම් Drive එකටද කියල Select කරන්න.\n\n<b>Supported archives to extract:</b>\n<code>zip, 7z, tar, gzip2, iso, wim, rar, tar.gz, tar.bz2</code>",
             parse_mode="html",
             buttons=buts,
         )
@@ -395,20 +395,20 @@ async def get_leech_choice_callback(e, o_sender, lis, ts):
         # encompasses the None situation too
         print("data ", lis)
         if lis[1] is True:
-            await e.answer("Will Not be zipped", alert=True)
+            await e.answer("Will Not be zipped\n🔑එහෙනම් ඔයාගෙ Content එක Zip කරන්නෙ නැතුව Upload කරන්නම්", alert=True)
             lis[1] = False
         else:
-            await e.answer("Will be zipped", alert=True)
+            await e.answer("Will be zipped\n🗜Okay! ඔයාගෙ Content එක Zip File එකක් විදිහට Upload කරන්නම්", alert=True)
             lis[1] = True
     elif data[1] == "toggleex":
         print("exdata ", lis)
         # encompasses the None situation too
         if lis[1] is True:
-            await e.answer("It will not be extracted.", alert=True)
+            await e.answer("It will not be extracted.\n🔑එහෙනම් ඔයාගෙ File එක Extract කරන්නෙ නැතුව Upload කරන්නම්", alert=True)
             lis[1] = False
         else:
             await e.answer(
-                "If it is a Archive it will be extracted. Further in you can set password to extract the ZIP.",
+                "📌 If it is a Archive it will be extracted.\n⚙️ Okay! ඔයාගෙ File එක Extract කරල Upload කරන්නම්",
                 alert=True,
             )
             lis[1] = True
@@ -643,7 +643,7 @@ async def set_password_zip(message):
 
 
 async def start_handler(event):
-    msg = "😋 Hi I'm Telegram File Uploader Bot Created by <a href='https://t.me/tgbotslk'>TG 𝔹𝕠𝕥𝕤 LK</a> & I'm Working only in <b>@FlashMirrorLk</b> Group"
+    msg = "😋 Hi I'm Telegram File Uploader Bot Created by <a href='https://t.me/tgbotslk'>TG 𝔹𝕠𝕥𝕤 LK</a> & I'm Working only in <b>@MirrorLK</b> Group"
     await event.reply(msg, parse_mode="html")
 
 
