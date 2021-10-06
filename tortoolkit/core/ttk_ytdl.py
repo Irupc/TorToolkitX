@@ -183,7 +183,7 @@ async def create_quality_menu(
 
 async def handle_ytdl_command(e: MessageLike):
     if not e.is_reply:
-        await e.reply("Reply to a youtube video link.")
+        await e.reply("ඔය Command එක ඔයාට Upload කරන්න ඕනි YouTube Video එකේ Link එකට Reply එකක් විදිහට දාන්න")
         return
     msg = await e.get_reply_message()
 
@@ -403,7 +403,7 @@ async def handle_ytdl_file_download(e: MessageLike):
 
 async def handle_ytdl_playlist(e: MessageLike) -> None:
     if not e.is_reply:
-        await e.reply("Reply to a youtube playlist link.")
+        await e.reply("ඔය Command එක ඔයාට Upload කරන්න ඕනි YouTube Playlist එකේ Link එකට Reply එකක් විදිහට දාන්න")
         return
     url = await e.get_reply_message()
     url = url.text.strip()
